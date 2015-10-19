@@ -1,4 +1,4 @@
-package com.tobby.designpattern.observer;
+package com.tobby.designpattern.observer.weatherdata;
 
 import java.util.ArrayList;
 import java.util.List;

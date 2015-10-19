@@ -1,4 +1,8 @@
-package com.tobby.designpattern.observer;
+package com.tobby.designpattern.observer.weatherdata.displayobserver;
+
+import com.tobby.designpattern.observer.weatherdata.DisplayElement;
+import com.tobby.designpattern.observer.weatherdata.Observer;
+import com.tobby.designpattern.observer.weatherdata.Subject;
 
 public class CurrentConditionsDisplay implements Observer, DisplayElement {
 

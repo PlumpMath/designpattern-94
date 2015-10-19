@@ -1,4 +1,4 @@
-package com.tobby.designpattern.observer;
+package com.tobby.designpattern.observer.weatherdata;
 
 public interface Observer {
 
