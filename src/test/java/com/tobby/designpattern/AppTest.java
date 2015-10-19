@@ -1,4 +1,4 @@
-package org.tobby.designpattern;
+package com.tobby.designpattern;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
