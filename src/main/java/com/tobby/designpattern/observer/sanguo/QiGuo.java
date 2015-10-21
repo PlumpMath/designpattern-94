@@ -19,22 +19,18 @@ package com.tobby.designpattern.observer.sanguo;
  * 此类描述的是：
  * 
  * @author 李林虎
- * @date 2015年10月21日 下午1:53:24
+ * @date 2015年10月21日 下午3:23:31
  */
-public class HanFeiZi implements IHanFeiZi {
-
-	private ILiSi liSi = new LiSi();
+public class QiGuo implements Observer {
 
 	@Override
-	public void haveBreakfast() {
-		System.out.println("韩非子:开始吃饭了...");
-		liSi.update("韩非子在吃饭");
+	public void update(String context) {
+		System.out.println("齐国：观察到韩非子活动，自己也开始活动了...");
+		cry(context);
+		System.out.println("齐国：真真的哭死了...\n");
 	}
 
-	@Override
-	public void haveFun() {
-		System.out.println("韩非子:开始娱乐了...");
-		liSi.update("韩非子在娱乐");
+	private void cry(String context){
+		System.out.println("齐国：因为"+context+"，——所以我悲伤呀！");
 	}
-
 }

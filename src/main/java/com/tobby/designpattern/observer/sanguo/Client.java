@@ -24,18 +24,9 @@ package com.tobby.designpattern.observer.sanguo;
 public class Client {
 
 	public static void main(String[] args) throws InterruptedException {
-		LiSi liSi = new LiSi();
 		HanFeiZi hanFeiZi = new HanFeiZi();
 
-		Watch watchBreakfast = new Watch(hanFeiZi, liSi, "breakfast");
-		Watch watchFun = new Watch(hanFeiZi, liSi, "fun");
-
-		watchBreakfast.start();
-		watchFun.start();
-
-		Thread.sleep(2000);
 		hanFeiZi.haveBreakfast();
-		Thread.sleep(2000);
 		hanFeiZi.haveFun();
 	}
 
