@@ -1,4 +1,4 @@
-package com.tobby.designpattern.factorymethod;
+package com.tobby.designpattern.abstractfactory;
 
 public abstract class PizzaStore {
 
@@ -11,7 +11,6 @@ public abstract class PizzaStore {
 		pizza.box();
 		return pizza;
 	}
-
+	
 	protected abstract Pizza createPizza(String type);
-
 }
