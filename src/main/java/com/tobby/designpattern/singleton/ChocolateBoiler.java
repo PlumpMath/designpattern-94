@@ -2,7 +2,7 @@ package com.tobby.designpattern.singleton;
 
 public class ChocolateBoiler {
 
-	private static ChocolateBoiler instance = new ChocolateBoiler();
+	private static ChocolateBoiler instance;
 
 	private String state;
 
@@ -11,6 +11,13 @@ public class ChocolateBoiler {
 	}
 
 	public static ChocolateBoiler getInstance() {
+		if (instance == null) {
+			synchronized (ChocolateBoiler.class) {
+				if (instance == null) {
+					instance = new ChocolateBoiler();
+				}
+			}
+		}
 		return instance;
 	}
 
