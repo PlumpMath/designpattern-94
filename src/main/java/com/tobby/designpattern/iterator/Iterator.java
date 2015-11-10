@@ -23,5 +23,5 @@ package com.tobby.designpattern.iterator;
  */
 public interface Iterator {
 	boolean hasNext();
-	Object nextObject();
+	Object next();
 }

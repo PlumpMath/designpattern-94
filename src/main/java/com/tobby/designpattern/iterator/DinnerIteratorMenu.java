@@ -15,37 +15,40 @@
  */
 package com.tobby.designpattern.iterator;
 
-import java.util.ArrayList;
-
 /**
  * 此类描述的是：
  * 
  * @author 李林虎
- * @date 2015年11月10日 上午10:11:49
+ * @date 2015年11月10日 上午10:41:40
  */
-public class PancakeHouseMenu {
+public class DinnerIteratorMenu {
 
-	private ArrayList<MenuItem> menuItems;
+	static final int MAX_ITEMS = 6;
 
-	public PancakeHouseMenu() {
-		menuItems = new ArrayList<MenuItem>();
-		addItem("K&B's Pancake Breakfast", "Pancakes with scrambled eggs, and toast", true, 2.99);
-		addItem("Regular Pancake Breakfast", "Pancakes with fried eggs, sausage", false, 2.99);
-		addItem("Blueberry pancakes", "Pancakes made with fresh blueberries", true, 3.49);
-		addItem("Waffles", "Waffles, with your choice of blueberries or strawberries", true, 3.59);
+	int numberOfItems = 0;
+
+	MenuItem[] menuItems;
+
+	public DinnerIteratorMenu() {
+		menuItems = new MenuItem[MAX_ITEMS];
+		addItem("Vegetarian BLT", "(Fakin') Bacon with lettuce & tomato on whole wheat", true, 2.99);
+		addItem("BLT", "Bacon with lettuce & tomato on whole wheat", false, 2.99);
+		addItem("Soup of the day", "Soup of the day, with a side of potato salad", false, 3.29);
+		addItem("Hotdog", "A hot dog, with saurkraut,  relish, onions, topped with cheese", false, 3.05);
 	}
 
 	public void addItem(String name, String description, boolean vegetarian, double price) {
 		MenuItem menuItem = new MenuItem(name, description, vegetarian, price);
-		menuItems.add(menuItem);
-	}
-
-	public ArrayList<MenuItem> getMenuItems() {
-		return menuItems;
+		if (numberOfItems >= MAX_ITEMS) {
+			System.err.println("Sorry, menu is full! Can't add item to menu");
+		} else {
+			menuItems[numberOfItems] = menuItem;
+			numberOfItems += 1;
+		}
 	}
 
 	public Iterator createIterator() {
-		return new PancakeHouseIterator(menuItems);
+		return new DinnerMenuIterator(menuItems);
 	}
 
 }

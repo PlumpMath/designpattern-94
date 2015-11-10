@@ -15,25 +15,27 @@
  */
 package com.tobby.designpattern.iterator;
 
+import java.util.ArrayList;
+
 /**
  * 此类描述的是：
  * 
  * @author 李林虎
- * @date 2015年11月10日 上午11:10:56
+ * @date 2015年11月10日 下午2:43:40
  */
-public class DinnerMenuIterator implements Iterator {
+public class PancakeHouseIterator implements Iterator {
 
-	MenuItem[] items;
+	private ArrayList<MenuItem> items;
 
-	int position = 0;
+	private int index = 0;
 
-	public DinnerMenuIterator(MenuItem[] items) {
+	public PancakeHouseIterator(ArrayList<MenuItem> items) {
 		this.items = items;
 	}
 
 	@Override
 	public boolean hasNext() {
-		if (position >= items.length || items[position] == null) {
+		if (index >= items.size()) {
 			return false;
 		} else {
 			return true;
@@ -42,9 +44,7 @@ public class DinnerMenuIterator implements Iterator {
 
 	@Override
 	public Object next() {
-		MenuItem menuItem = items[position];
-		position += 1;
-		return menuItem;
+		return items.get(index++);
 	}
 
 }

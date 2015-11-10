@@ -19,32 +19,15 @@ package com.tobby.designpattern.iterator;
  * 此类描述的是：
  * 
  * @author 李林虎
- * @date 2015年11月10日 上午11:10:56
+ * @date 2015年11月10日 下午2:54:29
  */
-public class DinnerMenuIterator implements Iterator {
+public class WaitressIteratorTest {
 
-	MenuItem[] items;
-
-	int position = 0;
-
-	public DinnerMenuIterator(MenuItem[] items) {
-		this.items = items;
-	}
-
-	@Override
-	public boolean hasNext() {
-		if (position >= items.length || items[position] == null) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-	@Override
-	public Object next() {
-		MenuItem menuItem = items[position];
-		position += 1;
-		return menuItem;
+	public static void main(String[] args) {
+		PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
+		DinnerIteratorMenu dinnerMenu = new DinnerIteratorMenu();
+		WaitressIterator waitress = new WaitressIterator(pancakeHouseMenu, dinnerMenu);
+		waitress.printMenu();
 	}
 
 }
