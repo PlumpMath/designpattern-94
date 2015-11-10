@@ -15,6 +15,8 @@
  */
 package com.tobby.designpattern.iterator.pattern;
 
+import java.util.ArrayList;
+
 /**
  * 此类描述的是：
  * 
@@ -24,10 +26,14 @@ package com.tobby.designpattern.iterator.pattern;
 public class MenuTestDrive {
 
 	public static void main(String[] args) {
+		ArrayList<Menu> menus = new ArrayList<Menu>();
 		Menu pancakeHouseMenu = new PancakeHouseMenu();
 		Menu dinnerMenu = new DinnerMenu();
 		Menu cafeMenu = new CafeMenu();
-		Waitress waitress = new Waitress(pancakeHouseMenu, dinnerMenu, cafeMenu);
+		menus.add(pancakeHouseMenu);
+		menus.add(dinnerMenu);
+		menus.add(cafeMenu);
+		Waitress waitress = new Waitress(menus);
 		waitress.printMenu();
 	}
 

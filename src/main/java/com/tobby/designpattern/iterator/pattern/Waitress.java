@@ -15,6 +15,7 @@
  */
 package com.tobby.designpattern.iterator.pattern;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -25,31 +26,22 @@ import java.util.Iterator;
  */
 public class Waitress {
 
-	Menu pancakeHouseMenu;
+	ArrayList<Menu> menus;
 
-	Menu dinnerMenu;
-
-	Menu cafeMenu;
-
-	public Waitress(Menu pancakeHouseMenu, Menu dinnerMenu, Menu cafeMenu) {
-		this.pancakeHouseMenu = pancakeHouseMenu;
-		this.dinnerMenu = dinnerMenu;
-		this.cafeMenu = cafeMenu;
+	public Waitress(ArrayList<Menu> menus) {
+		this.menus = menus;
 	}
 
 	public void printMenu() {
-		Iterator<MenuItem> pancakeIterator = pancakeHouseMenu.createIterator();
-		Iterator<MenuItem> dinnerIterator = dinnerMenu.createIterator();
-		Iterator<MenuItem> cafeMenuIterator = cafeMenu.createIterator();
-		System.out.println("MENU\n----\nBREAKFAST");
-		printMenu(pancakeIterator);
-		System.out.println("\nLUNCH");
-		printMenu(dinnerIterator);
-		System.out.println("\nDINNER");
-		printMenu(cafeMenuIterator);
+		Iterator<Menu> menuIterator = menus.iterator();
+		while (menuIterator.hasNext()) {
+			Menu menu = (Menu)menuIterator.next();
+			printMenu(menu.createIterator());
+		}
 	}
 
 	public void printMenu(Iterator<MenuItem> iterator) {
+		System.out.println("\n------------------");
 		while (iterator.hasNext()) {
 			MenuItem menuItem = iterator.next();
 			System.out.print(menuItem.getName() + ", ");
