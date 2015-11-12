@@ -1,5 +1,7 @@
 package com.tobby.designpattern.composite;
 
+import java.util.Iterator;
+
 public class MenuItem extends MenuComponent {
 	String name;
 	String description;
@@ -40,6 +42,11 @@ public class MenuItem extends MenuComponent {
 			System.out.print("(v)");
 		}
 		System.out.println(", " + description + "   --- " + price);
+	}
+
+	@Override
+	public Iterator<MenuComponent> createIterator() {
+		return new NullIterator();
 	}
 
 }
