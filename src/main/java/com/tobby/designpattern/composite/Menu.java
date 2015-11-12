@@ -22,10 +22,6 @@ public class Menu extends MenuComponent {
 		menuComponents.remove(menuComponent);
 	}
 
-	public MenuComponent getChild(int i) {
-		return (MenuComponent)menuComponents.get(i);
-	}
-
 	public String getName() {
 		return name;
 	}
