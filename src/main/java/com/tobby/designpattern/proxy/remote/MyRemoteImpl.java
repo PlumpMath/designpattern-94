@@ -7,6 +7,8 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class MyRemoteImpl extends UnicastRemoteObject implements MyRemote {
 
+	private static final long serialVersionUID = 4461398041911671694L;
+
 	protected MyRemoteImpl() throws RemoteException {
 	}
 
